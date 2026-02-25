@@ -1,37 +1,50 @@
 import React, { useContext } from 'react'
-import MyAnimation from './LOtifile'
-import { useForm } from 'react-hook-form'
-import { nanoid } from 'nanoid';
-import { recipecontext } from '../Context/Recipecontext';
+import { recipecontext } from '../Context/Recipecontext'
+import RecipeCard from '../Component/RecipeCard';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { Navigate, useNavigate } from 'react-router-dom';
-
-const CreateRecipe = () => {
-    const navigate=useNavigate();
-    const { recipedata, setrecipedata } = useContext(recipecontext);
-    const { register, handleSubmit, reset } = useForm();
 
 
+const Singlerecipe = () => {
+  const navigate=useNavigate();
+    const { recipedata } = useContext(recipecontext);
+
+    const param = useParams()
+    console.log(recipedata,param.id);
+    
+     const { register, handleSubmit, reset } = useForm();
+        const submithandler = (data) => {
+        
+            console.log(data)
+            console.log(data.title)
+         
+              toast.success(" Recipe Updated!")
+            reset();
+            navigate("/Recipe")
+        }
+
+    const recipe = recipedata.find(recipe => param.id == recipe.id)
+ console.log(recipe)
 
 
+    return    recipe ? <div className='bg-red-900 p-5'>
+      
+    
+    <div>
+       
+<div className="left">
 
-    const submithandler = (data) => {
-        data.id = nanoid()
-        console.log(data)
-        console.log(data.title)
-          setrecipedata(prev => [...prev, data]);
-          toast.success("New Recipe Created!")
-        reset();
-        navigate("/Recipe")
-    }
+ <img src={recipe.image} alt="" className="h-[150px]  w-[200px] " />
+ <h1>{recipe.title}<span>{recipe.id}</span></h1>
+    <h1>{recipe.chef}</h1>
+ <h1>{recipe.des}</h1>
+   <h1>{recipe.des}</h1>
+    <p>{recipe.ing}</p>
 
-
-    return (
-        <div className='     flex flex-row justify-between m-10  bg-white/10 backdrop-blur-lg  rounded-2xl border border-white/20 '  >
-            <div className='w-1/2 h-full bg-transparent'>
-
-                <h1 className="text-2xl px-5 py-4 ">Recipe Details  </h1>
-                <form onSubmit={handleSubmit(submithandler)} className='   flex flex-col justify-between w-full   items-start px-15 py-2 bg-transparent gap-1 outline-0   '>
+</div>
+<div className="right"> 
+     <form onSubmit={handleSubmit(submithandler)} className='bg-transparent    flex flex-col justify-between w-full   items-start px-15 py-5 gap-1 outline-0   '>
                     <label htmlFor="Title" className='text-2xl   font-thin select-none  '>Recipe  Title   </label>
                     <input type="text" placeholder='Recipe Title ' className='outline-0 w-9/12 p-0 border-b '  {...register('title')} />
                     <label htmlFor="Choose a image" className='text-2xl   font-thin select-none '>Recipe image  </label>
@@ -43,8 +56,8 @@ const CreateRecipe = () => {
                     <label htmlFor="Des" className='text-2xl   font-thin select-none  '> Recipe Instructions </label>
                     <textarea name="" id="" placeholder='Enter the recipe Description ' className='outline-0 p-0 border-b w-9/12  ' {...register('Instruction')} ></textarea>
                     <select name="Recipe" id="Recipe" className='outline-0 p-0 border-b w-fit   ' {...register('cat')} >
-                        <option className=' bg-rose-500 border-none font-semibold ' value="Veg">Veg Recipe</option>
-                        <option className=' bg-rose-500  font-semibold ' value="Non-Veg">Non Veg</option>
+                        <option className=' bg-rose-500 border-none font-semibold ' value="BreakFast">Veg Recipe</option>
+                        <option className=' bg-rose-500  font-semibold ' value="">Non Veg</option>
                         <option className=' bg-rose-500 font-semibold  ' value="Spicy">Spicy</option>
                         <option className=' bg-rose-500 font-semibold ' value="Sweat">Sweat</option>
                     </select>
@@ -53,13 +66,12 @@ const CreateRecipe = () => {
                         Create Recipe
                     </button>
 
-                </form>
-            </div>
-            <div className='  w-1/2   px-10   '>
-                <MyAnimation />
-            </div>
-        </div>
-    )
+                </form></div>
+
+
+    </div> 
+    </div>
+    :"Loading Recipes....";
 }
 
-export default CreateRecipe 
+export default Singlerecipe

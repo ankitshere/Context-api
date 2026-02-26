@@ -5,10 +5,15 @@ import Navbar from './Navbar'
 
 const App = () => {
   return (
-    <div className='bg-rose-500 w-scren h-screen px-20 text-white  py-5'>
-      <Navbar/>
-      <Mainrouters/>
-    </div>
+   <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-red-50">
+  <div className="px-20 py-6 bg-white shadow-sm border-b border-gray-100">
+    <Navbar />
+  </div>
+  <div className="px-20 py-10">
+    <Mainrouters />
+  </div>
+
+</div>
   )
 }
 

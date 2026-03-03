@@ -1,29 +1,36 @@
 import React, { useContext } from "react";
 import { recipecontext } from "../Context/Recipecontext";
 import RecipeCard from "../Component/RecipeCard";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const Singlerecipe = () => {
-  const navigate = useNavigate();
-  const { recipedata } = useContext(recipecontext);
+  const { recipedata,setrecipedata } = useContext(recipecontext);
+
+const [updateddata, setupdateddata] = useState('')
+
 
   const param = useParams();
-  console.log(recipedata, param.id);
+  // console.log(recipedata, param.id);
 
   const { register, handleSubmit, reset } = useForm();
-  const submithandler = (data) => {
-    console.log(data);
-    console.log(data.title);
 
-    toast.success(" Recipe Updated!");
-    reset();
-    navigate("/Recipe");
+
+  const submithandler = (recipe) => {
+const index= recipedata.findIndex((recipe) => param.id == recipe.id);
+
+  const copyrecipedata=[...recipedata];
+  copyrecipedata[index]={...copyrecipedata[index], ...recipe}
+   console.log(copyrecipedata[index]  
+    
+   );
+
+//  console.log("nahi mila") 
   };
 
   const recipe = recipedata.find((recipe) => param.id == recipe.id);
-  console.log(recipe);
+  // console.log(recipe);
 
   return recipe ? (
    <div className="bg-linear-to-br from-orange-50 to-red-50 py-8 px-12">
@@ -115,13 +122,13 @@ const Singlerecipe = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-600 mb-1">
-            Instructions
+            Ingredents
           </label>
           <textarea
             rows="3"
-            defaultValue={recipe.instruction}
+            defaultValue={recipe.ingredents}
             className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-400 focus:outline-none transition resize-none"
-            {...register("instruction")}
+            {...register("ingredents")}
           ></textarea>
         </div>
 
@@ -130,22 +137,27 @@ const Singlerecipe = () => {
             Category
           </label>
           <select
-            defaultValue={recipe.category}
-            className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-400 focus:outline-none transition"
+            className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-orange-400 focus:outline-none transition"
             {...register("category")}
           >
-            <option value="Veg">Veg</option>
-            <option value="Non Veg">Non Veg</option>
-            <option value="Spicy">Spicy</option>
-            <option value="Sweet">Sweet</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Dinner">Dinner</option>
           </select>
         </div>
 
-        <button
+        <button onClick={submithandler}
           type="submit"
-          className="mt-4 bg-gradient-to-r from-orange-500 to-red-500 text-white py-2 rounded-lg font-semibold hover:shadow-md hover:scale-[1.02] transition duration-300"
+          className="mt-4 bg-linear-to-r from-blue-500 to-blue-900 text-white py-2 rounded-lg font-semibold hover:shadow-md hover:scale-[1.02] transition duration-300"
         >
           Update Recipe
+        </button>
+        <button
+          type="button"
+          className="mt-4 bg-linear-to-r from-orange-500 to-red-500 text-white py-2 rounded-lg font-semibold hover:shadow-md hover:scale-[1.02] transition duration-300"
+        >
+          delete Recipe
         </button>
 
       </form>

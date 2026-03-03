@@ -1,7 +1,11 @@
 import { ChefHat } from "lucide-react";
 import React from "react";
+import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  const goto = () => {};
+
   return (
     <div className="min-h-screen  flex flex-col justify-center items-start mt-10 ">
       {/* Main Card Container */}
@@ -31,29 +35,38 @@ const Home = () => {
           </div>
 
           <h1 className="text-6xl font-extrabold text-gray-900 leading-tight">
-            Savor the Taste of <br /> Perfection.
+            Turn Your Ideas into Delicious <br /> Recipes.
           </h1>
 
-          <p className="mt-5 text-gray-600 max-w-xl mx-auto">
-            Fresh ingredients, mouth-watering recipes, and a passion for good
-            food delivered to your door or ready for pick-up.
+          <p className="mt-5 text-gray-600 max-w-xl mb-10 mx-auto">
+            Create, organize, and showcase your favorite recipes with ease. Your
+            personal
+            <span className="text-orange-600 font-sm">digital kitchen</span>
+            starts here...
           </p>
 
-          <button className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-md transition">
+          <Link
+            to="/CreateRecipe"
+            className=" bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-md transition "
+          >
             Create recipe →
-          </button>
+          </Link>
         </div>
-
-        {/* Hero Image */}
-      </div>
-      <div className="rounded-3xl overflow-hidden shadow-lg">
-        <img
+  {/* <img
           src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
           alt="Food"
-          className="w-full h-[420px] object-cover"
-        />
+         
+        /> */}
+        {/* Hero Image */}
       </div>
+
+      <div className="w-full h-[550px] bg-red-200 mt-30 rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Food"  className="h-full w-full  object-cover   rounded-2xl bordered border-2  transition hover:scale-101 "/>
+      </div>
+    
+    
     </div>
+    
   );
 };
 

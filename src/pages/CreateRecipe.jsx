@@ -89,13 +89,13 @@ const CreateRecipe = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-600 mb-1">
-            Instructions
+            Ingredents
           </label>
           <textarea
             rows="3"
-            placeholder=" Enter the  Step-by-step cooking instructions..."
+            placeholder=" Enter the  Step-by-step cooking ingredents..."
             className="w-full border border-gray-200 rounded-xl px-4 py-1 focus:ring-2 focus:ring-orange-400 focus:outline-none transition resize-none"
-            {...register("instruction")}
+            {...register("ingredents")}
           ></textarea>
         </div>
         <div>

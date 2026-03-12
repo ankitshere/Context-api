@@ -23,7 +23,7 @@
 
       <div className="p-5">
         <h2 className="text-xl font-bold text-gray-800">
-          {title}
+          {title} 
         </h2>
 
         <p className="text-sm text-gray-500 mt-1">

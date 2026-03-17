@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { recipecontext } from "../Context/Recipecontext";
 import RecipeCard from "../Component/RecipeCard";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
@@ -40,6 +40,14 @@ const DeleteHandler=function(){
   toast.success("Recipe Deleted!")
  navigate("/Recipe");
 }
+
+useEffect(() => {
+      console.log("singlerecipe is mounted")
+ 
+  return ()=>{
+    console.log("single recipe is amounted")
+  }
+}, []);
 
 
   return recipe ? (

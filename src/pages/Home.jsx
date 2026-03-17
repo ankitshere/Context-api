@@ -1,10 +1,29 @@
-import { ChefHat } from "lucide-react";
-import React from "react";
+import axios from "../Utils/Axios";
+import { ChefHat, CloudHail } from "lucide-react";
+import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
 const Home = () => {
   const goto = () => {};
+
+
+  const getdata= async()=>{
+      try {
+         const {data}=  await axios.get("https://fakestoreapi.com/products");
+         console.log(data)
+      } catch (error) {
+        console.log(error)
+      }
+  }
+
+useEffect(() => {
+      console.log("home is mounted")
+  getdata();
+  return ()=>{
+    console.log("home is amounted")
+  }
+}, []);
+
 
   return (
     <div className="min-h-screen  flex flex-col justify-center items-start mt-10 ">
@@ -58,6 +77,7 @@ const Home = () => {
          
         /> */}
         {/* Hero Image */}
+        <button onClick={getdata} >getdata</button>
       </div>
 
       <div className="w-full h-[550px] bg-red-200 mt-30 rounded-2xl overflow-hidden">

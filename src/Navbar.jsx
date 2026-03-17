@@ -9,6 +9,7 @@ const Navbar = () => {
  <NavLink  className={(e)=> e.isActive ? "text-black  hover:text-orange-500 cursor-pointer " : ""} to="/Recipe">Recipe</NavLink>
  <NavLink  className={(e)=> e.isActive ? "text-white  border md  bg-rose-600 rounded-2xl px-2  text-xl " : ""} to="/CreateRecipe"> Create Recipe</NavLink>
 
+
     </div>
   
   )

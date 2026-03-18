@@ -34,7 +34,7 @@ useEffect(() => {
         <img
           src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"
           alt="food"
-          className="hidden md:block absolute left-2 top-24 w-32 
+          className="hidden md:block absolute left-8 top-30 w-32 
   -rotate-12 rounded-2xl shadow-lg
   transition-all duration-500 ease-in-out
   hover:scale-110 hover:-rotate-6 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
@@ -97,8 +97,8 @@ useEffect(() => {
           alt="Food"
          
         /> */}
-        
-        <button onClick={getdata} >getdata</button>
+          
+        {/* <button onClick={getdata} >getdata</button> */}
       </div>
 
       <div className="w-9/10 h-[400px] flex center m-15 bg-red-200 mt-30 rounded-2xl overflow-hidden">

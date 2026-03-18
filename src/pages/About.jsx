@@ -1,12 +1,58 @@
-import React from 'react'
+import React from "react";
 
 const About = () => {
   return (
-     <div className="bg-blue-300 h-full w-full  mt-30 text-center">
-        <h1>About Us </h1>
-        <p>This platform is built for passionate food creators who want to store, manage, and showcase their recipes with ease. Create new dishes, edit your favorites, and keep everything organized in one beautiful digital kitchen.</p>
-      </div>
-  )
-}
+    <div className="min-h-screen bg-[#F8F5F2] flex items-center justify-center px-6 py-16">
 
-export default About
+      <div className="max-w-4xl bg-white shadow-lg rounded-2xl p-10 text-center">
+
+        {/* Heading */}
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          About <span className="text-orange-500">Cookify</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-gray-500 mb-6">
+          Your personal digital kitchen 🍳
+        </p>
+
+        {/* Content */}
+        <p className="text-lg text-gray-700 leading-relaxed">
+          This platform is built for passionate food creators who want to
+          store, manage, and showcase their recipes with ease. Create new
+          dishes, edit your favorites, and keep everything organized in one
+          beautiful digital kitchen.
+        </p>
+
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+
+          <div className="bg-orange-50 p-5 rounded-xl">
+            <h3 className="font-semibold text-gray-800">Create</h3>
+            <p className="text-sm text-gray-500 mt-2">
+              Add your own recipes easily
+            </p>
+          </div>
+
+          <div className="bg-orange-50 p-5 rounded-xl">
+            <h3 className="font-semibold text-gray-800">Organize</h3>
+            <p className="text-sm text-gray-500 mt-2">
+              Manage everything in one place
+            </p>
+          </div>
+
+          <div className="bg-orange-50 p-5 rounded-xl">
+            <h3 className="font-semibold text-gray-800">Showcase</h3>
+            <p className="text-sm text-gray-500 mt-2">
+              Share your recipes beautifully
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default About;

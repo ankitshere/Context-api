@@ -42,7 +42,7 @@ const DeleteHandler=function(){
 }
 
 useEffect(() => {
-      // console.log("singlerecipe is mounted")
+      // console.log("singlerecipe is mounted") 
  
   return ()=>{
     // console.log("single recipe is amounted")

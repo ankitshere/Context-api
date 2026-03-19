@@ -3,7 +3,8 @@ import React, { useState, createContext, useEffect } from 'react'
 
 export const recipecontext = createContext(null);
 const Recipecontext = (props) => {
-    const [recipedata, setrecipedata] = useState([
+    const [recipedata, setrecipedata] = useState([ ]);
+    
 
 useEffect(()=>{
 
@@ -11,7 +12,7 @@ useEffect(()=>{
 
 },[])
 
-    ])
+   
 
     console.log(recipedata)
     return (

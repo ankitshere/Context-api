@@ -13,7 +13,7 @@ const Recipe = () => {
     ))
 ) : (
   <h2 className="text-center text-2xl col-span-3 text-gray-500">
-    No Recipes 
+    No Recipes 🍽️
   </h2>
 );
   return (

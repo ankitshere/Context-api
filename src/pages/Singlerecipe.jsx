@@ -29,7 +29,7 @@ const recipe = recipedata.find((recipe) => param.id == recipe.id);
     copyrecipedata[index] = { ...copyrecipedata[index], ...recipe };
 
     setrecipedata(copyrecipedata);
-    localStorage.setItem("recipes", JSON.stringify( copyrecipedata));
+    localStorage.setItem("recipe", JSON.stringify( copyrecipedata));
     toast.success("Recipe Updated!");
   };
 
@@ -38,7 +38,7 @@ const DeleteHandler=function(){
   const filterdata=recipedata.filter((recipe) => recipe.id !== param.id);
   console.log(filterdata)
   setrecipedata(filterdata);
-  localStorage.setItem("recipes", JSON.stringify(filterdata));
+  localStorage.setItem("recipe", JSON.stringify(filterdata));
   toast.success("Recipe Deleted!")
  navigate("/Recipe");
 }

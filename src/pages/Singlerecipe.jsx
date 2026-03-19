@@ -14,21 +14,22 @@ const recipe = recipedata.find((recipe) => param.id == recipe.id);
 
   const { register, handleSubmit, reset } = useForm({
      defaultValues : {
-    title: recipe.title,
-    image: recipe.img,
-    ingredents: recipe.ingredents,
-   description: recipe.description,
-    chef: recipe.chef,
-    category: recipe.category,
+    title: recipe?.title,
+    image: recipe?.img,
+    ingredents: recipe?.ingredents,
+   description: recipe?.description,
+    chef: recipe?.chef,
+    category: recipe?.category,
   }});
 
-  const submithandler = (recipe) => {
+  const Updatehandler = (recipe) => {
     const index = recipedata.findIndex((recipe) => param.id == recipe.id);
 
     const copyrecipedata = [...recipedata];
     copyrecipedata[index] = { ...copyrecipedata[index], ...recipe };
 
     setrecipedata(copyrecipedata);
+    localStorage.setItem("recipes", JSON.stringify( copyrecipedata));
     toast.success("Recipe Updated!");
   };
 
@@ -36,7 +37,8 @@ const recipe = recipedata.find((recipe) => param.id == recipe.id);
 const DeleteHandler=function(){
   const filterdata=recipedata.filter((recipe) => recipe.id !== param.id);
   console.log(filterdata)
-  setrecipedata(filterdata)
+  setrecipedata(filterdata);
+  localStorage.setItem("recipes", JSON.stringify(filterdata));
   toast.success("Recipe Deleted!")
  navigate("/Recipe");
 }
@@ -79,7 +81,7 @@ useEffect(() => {
           <h1 className="text-2xl font-bold text-gray-800 mb-6">Edit Recipe</h1>
 
           <form
-            onSubmit={handleSubmit(submithandler)}
+            onSubmit={handleSubmit(Updatehandler)}
             className="flex flex-col gap-5"
           >
             <div>

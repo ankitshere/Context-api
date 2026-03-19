@@ -5,11 +5,17 @@ import RecipeCard from '../Component/RecipeCard';
 const Recipe = () => {
 
   const { recipedata } = useContext(recipecontext);
-  const renderrecipe = recipedata.map((recipe,idx) => (
-    
-<RecipeCard key={recipe.id} id={idx}  recipe={recipe}/>
-
-));
+ const renderrecipe = recipedata?.length > 0 ? (
+  recipedata
+    .filter((item) => item) // undefined remove
+    .map((recipe, idx) => (
+      <RecipeCard key={recipe.id || idx} id={idx} recipe={recipe} />
+    ))
+) : (
+  <h2 className="text-center text-2xl col-span-3 text-gray-500">
+    No Recipes 
+  </h2>
+);
   return (
 <div className="min-h-screen bg-linear-to-br from-[#f4eee6] to-[#f8f6f2] py-24 px-10">
     

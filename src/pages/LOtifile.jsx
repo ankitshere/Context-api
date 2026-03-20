@@ -15,7 +15,11 @@ const MyAnimation = () => {
     return () => anim.destroy();
   }, []);
 
-  return <div ref={animationRef} style={{ width:450 }}></div>;
+  return  <div
+      ref={animationRef}
+      className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[450px] mx-auto"
+    />;
 };
 
 export default MyAnimation;
+

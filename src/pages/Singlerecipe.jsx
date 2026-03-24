@@ -6,21 +6,21 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const Singlerecipe = () => {
-  
   const { recipedata, setrecipedata } = useContext(recipecontext);
-const navigate=useNavigate()
- const param = useParams();
-const recipe = recipedata.find((recipe) => param.id == recipe.id);
+  const navigate = useNavigate();
+  const param = useParams();
+  const recipe = recipedata.find((recipe) => param.id == recipe.id);
 
   const { register, handleSubmit, reset } = useForm({
-     defaultValues : {
-    title: recipe?.title,
-    image: recipe?.img,
-    ingredents: recipe?.ingredents,
-   description: recipe?.description,
-    chef: recipe?.chef,
-    category: recipe?.category,
-  }});
+    defaultValues: {
+      title: recipe?.title,
+      image: recipe?.img,
+      ingredents: recipe?.ingredents,
+      description: recipe?.description,
+      chef: recipe?.chef,
+      category: recipe?.category,
+    },
+  });
 
   const Updatehandler = (recipe) => {
     const index = recipedata.findIndex((recipe) => param.id == recipe.id);
@@ -29,40 +29,61 @@ const recipe = recipedata.find((recipe) => param.id == recipe.id);
     copyrecipedata[index] = { ...copyrecipedata[index], ...recipe };
 
     setrecipedata(copyrecipedata);
-    localStorage.setItem("recipe", JSON.stringify( copyrecipedata));
+    localStorage.setItem("recipe", JSON.stringify(copyrecipedata));
     toast.success("Recipe Updated!");
   };
 
-  
-const DeleteHandler=function(){
-  const filterdata=recipedata.filter((recipe) => recipe.id !== param.id);
-  console.log(filterdata)
-  setrecipedata(filterdata);
-  localStorage.setItem("recipe", JSON.stringify(filterdata));
-  toast.success("Recipe Deleted!")
- navigate("/Recipe");
-}
+  const DeleteHandler = function () {
+    const filterdata = recipedata.filter((recipe) => recipe.id !== param.id);
+    console.log(filterdata);
+    setrecipedata(filterdata);
+    localStorage.setItem("recipe", JSON.stringify(filterdata));
+    toast.success("Recipe Deleted!");
+    navigate("/Recipe");
+  };
 
-useEffect(() => {
-      // console.log("singlerecipe is mounted") 
+  useEffect(() => {
+    // console.log("singlerecipe is mounted")
+
+    return () => {
+      // console.log("single recipe is amounted")
+    };
+  }, []);
  
-  return ()=>{
-    // console.log("single recipe is amounted")
-  }
-}, []);
+const Favorite= JSON.parse(localStorage.getItem("fav")) ||[];
 
+  const favrecipe = () => {
+    Favorite.push(recipe)
+    localStorage.setItem("fav",JSON.stringify(Favorite));
+    
+  };
+  const Unfavrecipe = () => {
+    console.log("unfavorite recipe  ");
+  const filterfav=  Favorite.filter((f=> f.id !=recipe?.id));
+    localStorage.setItem("fav",JSON.stringify(filterfav));
+
+  };
 
   return recipe ? (
     <div className="bg-linear-to-br from-orange-50 to-red-50 py-8 px-12">
       <div className="flex gap-12">
-        <div className="w-1/3 bg-white md  h-max  rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-101 ease-in-out hover:shadow-2xl hover:-translate-y-2">
+        <div className="w-1/3 relative bg-white md  h-max  rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-101 ease-in-out hover:shadow-2xl hover:-translate-y-2">
           <img
             src={recipe.image}
             alt={recipe.title}
             className="w-full h-40 object-cover"
           />
 
-          <div className="p-5">
+          <div className="p-5 bg-blue-300 relative">
+            <div
+             className=" bg-red-400 absolute top-4 left-65    ">
+              {Favorite.find((f=> f.id==recipe?.id)) ?<i onClick={Unfavrecipe}
+              className="ri-heart-3-fill absolute text-3xl font-bold text-red-500  "></i>
+             :   <i  onClick={favrecipe}
+              className="ri-heart-3-line absolute text-3xl font-bold text-red-500 "></i>}
+            
+              
+            </div>
             <h2 className="text-xl font-bold text-gray-800">{recipe.title}</h2>
 
             <p className="text-sm text-gray-500 mt-1">By {recipe.chef}</p>
@@ -166,7 +187,7 @@ useEffect(() => {
               Update Recipe
             </button>
             <button
-            onClick={DeleteHandler}
+              onClick={DeleteHandler}
               type="button"
               className="mt-4 bg-linear-to-r from-orange-500 to-red-500 text-white py-2 rounded-lg font-semibold hover:shadow-md hover:scale-[1.02] transition duration-300"
             >

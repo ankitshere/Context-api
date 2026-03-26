@@ -137,7 +137,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">RecipeHub</h2>
+              <h2 className="text-3xl font-bold text-gray-900">Cookify</h2>
               <p className="mt-3 text-sm text-gray-600">
                 Your personal digital cookbook. Create, manage and share your
                 recipes with ease.
@@ -210,7 +210,7 @@ const Home = () => {
 
           {/* Bottom */}
           <div className="border-t border-gray-300 mt-10 pt-6 text-center text-sm text-gray-500">
-            © 2026 RecipeHub. All rights reserved.
+            © 2026 Cookify. All rights reserved.
           </div>
         </div>
       </div>

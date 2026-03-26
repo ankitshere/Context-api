@@ -13,7 +13,6 @@ const CreateRecipe = () => {
 
   const submithandler = (data) => {
     data.id = nanoid();
-
     const copydata = [...recipedata];
     copydata.push(data);
     setrecipedata((copydata) => [...copydata, data]);
@@ -24,9 +23,10 @@ const CreateRecipe = () => {
   };
 
   return (
-    <div className="min-h-screen -ml-[20%]  w-[40vh] bg-linear-to-br from-orange-50 to-red-50 flex items-center justify-center px-4 sm:px-6 py-8 sm:py-10">
-      <div className="w-full max-w-6xl  rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row">
-  
+    <div className="min-h-screen w-full bg-linear-to-br from-orange-50 to-red-50 flex items-center justify-center px-4 sm:px-6 py-8 sm:py-10">
+      <div className="w-full max-w-6xl rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+
+        {/* LEFT FORM */}
         <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 lg:p-12">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-2">
             Create your Recipe
@@ -93,7 +93,7 @@ const CreateRecipe = () => {
               </label>
               <textarea
                 rows="3"
-                placeholder=" Enter the  Step-by-step cooking ingredents..."
+                placeholder=" Enter the Step-by-step cooking ingredents..."
                 className="w-full border border-gray-200 rounded-xl px-4 py-1 focus:ring-2 focus:ring-orange-400 focus:outline-none transition resize-none text-sm sm:text-base"
                 {...register("ingredents")}
               ></textarea>
@@ -114,7 +114,6 @@ const CreateRecipe = () => {
               </select>
             </div>
 
-            {/* Button */}
             <button
               type="submit"
               className="mt-4 sm:mt-6 bg-linear-to-r from-orange-500 to-red-500 text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-[1.02] transition duration-300 text-sm sm:text-base"

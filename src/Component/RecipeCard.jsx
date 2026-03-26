@@ -1,33 +1,30 @@
-  import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-  const RecipeCard = ({ recipe }) => {
-console.log(recipe.
-ingredents)
-    const { id, image, des, chef, ing, title } = recipe;
+const RecipeCard = ({ recipe }) => {
 
-    return (
-    
+  const { id, image, des, chef, ing, title } = recipe;
 
-        <Link to={`/Recipe/details/${id}`}    className="
-    w-full max-w-[660px]
-    mx-auto
-    bg-white 
-    rounded-2xl 
-    shadow-lg 
-    overflow-hidden 
-    transition-all duration-300 
-    hover:scale-[1.02]
-    hover:shadow-2xl 
-    hover:-translate-y-2
-  ">
+  return (
+    <Link to={`/Recipe/details/${id}`} className="
+      w-full
+      mx-auto
+      bg-white 
+      rounded-2xl 
+      shadow-lg 
+      overflow-hidden 
+      transition-all duration-300 
+      hover:scale-[1.02]
+      hover:shadow-2xl 
+      hover:-translate-y-2
+    ">
       <img
         src={image}
-       className="w-full h-40 object-cover"
+        className="w-full h-40 sm:h-48 md:h-52 object-cover"
       />
 
-      <div className="p-5">
-        <h2 className="text-xl font-bold text-gray-800">
-          {title} 
+      <div className="p-4 sm:p-5">
+        <h2 className="text-lg sm:text-xl font-bold text-gray-800">
+          {title}
         </h2>
 
         <p className="text-sm text-gray-500 mt-1">
@@ -39,12 +36,11 @@ ingredents)
         </p>
 
         <span className="inline-block mt-4 bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-xs font-semibold">
-        {ing}
+          {ing}
         </span>
       </div>
     </Link>
- 
-    );
-  };
+  );
+};
 
-  export default RecipeCard;
+export default RecipeCard;

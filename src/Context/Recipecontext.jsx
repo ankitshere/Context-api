@@ -14,7 +14,7 @@ useEffect(()=>{
 
    
 
-    console.log(recipedata)
+    // console.log(recipedata)
     return (
         <recipecontext.Provider value={{ recipedata, setrecipedata }}>{props.children}</recipecontext.Provider>
     )

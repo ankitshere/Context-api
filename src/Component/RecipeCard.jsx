@@ -1,16 +1,28 @@
   import { Link } from "react-router-dom";
 
   const RecipeCard = ({ recipe }) => {
-
+console.log(recipe.
+ingredents)
     const { id, image, des, chef, ing, title } = recipe;
 
     return (
     
 
-        <Link to={`/Recipe/details/${id}`}  className=" w-[300px]  bg-white md  h-max  rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:scale-101 ease-in-out hover:shadow-2xl hover:-translate-y-2">
+        <Link to={`/Recipe/details/${id}`}    className="
+    w-full max-w-[660px]
+    mx-auto
+    bg-white 
+    rounded-2xl 
+    shadow-lg 
+    overflow-hidden 
+    transition-all duration-300 
+    hover:scale-[1.02]
+    hover:shadow-2xl 
+    hover:-translate-y-2
+  ">
       <img
         src={image}
-        className="w-full h-40 object-cover"
+       className="w-full h-40 object-cover"
       />
 
       <div className="p-5">
@@ -27,7 +39,7 @@
         </p>
 
         <span className="inline-block mt-4 bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-xs font-semibold">
-          {ing}
+        {ing}
         </span>
       </div>
     </Link>

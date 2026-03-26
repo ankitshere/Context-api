@@ -4,12 +4,10 @@ import axios from "axios";
     baseURL:"https://fakestoreapi.com/",
 
   });
-//   const instance = axios.create();
-
 
 instance.interceptors.request.use(
   function (config) {
-    console.log(  "request------->",config)
+    // console.log(  "request------->",config)
     return config;
   },
   function (error) {
@@ -19,7 +17,7 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   function (response) {
-        console.log(  "reponce------->",response)
+        // console.log(  "reponce------->",response)
     return response;
   },
   function (error) {

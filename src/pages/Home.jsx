@@ -3,35 +3,32 @@ import { ChefHat, CloudHail } from "lucide-react";
 import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Instagram } from "lucide-react";
+import Footer from "./Footer";
 const Home = () => {
   const goto = () => {};
 
   return (
     <div>
       <div className="min-h-screen flex flex-col   py-5  items-center mt-10  ">
-       
-        <div className="w-full bg-[#f4eee6]   rounded-2xl  shadow-xl">
+        <div className="w-9/10 h-6/12  bg-[#f4eee6]   rounded-2xl  shadow-xl">
           <img
-            src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"
+            src="/img1.jpg"
             alt="food"
-            className="hidden md:block absolute left-8 top-30 w-32 
-            -rotate-12 rounded-2xl shadow-lg
-                 transition-all duration-500 ease-in-out
-                     hover:scale-110 hover:-rotate-6 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+            className=" md:block absolute left-2 top-22 lg:w-30 lg:left-10 sm:w-30 w-26 
+            -rotate-45 rounded-2xl shadow-lg
+                 transition-all hover:scale-110 duration-500 ease-in-out hover:-rotate-6 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
           />
 
           <img
-            src="https://images.unsplash.com/photo-1550547660-d9450f859349"
+            src="/homeimg2.jpg"
             alt="food"
-            className="hidden md:block absolute right-12 top-110 w-32 
-                   rotate-30 rounded-2xl shadow-lg
+            className=" md:block absolute right-6 top-115 md:right-10 md:top-120 md:rotate-38 md:w-28 lg:w-28 lg:right-10 lg:top-110 sm:w-30 w-22 
+                   rotate-40 rounded-2xl shadow-lg
                       transition-all duration-500 ease-in-out
                      hover:scale-110 hover:rotate-25 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
           />
 
-         
-          <div className="text-center  m-5 ">
+          <div className="text-center h-fit  m-5  ">
             <div className="text-orange-500  self-center  flex flex-col items-center  mb-3">
               <ChefHat size={60} strokeWidth={1.25} />{" "}
             </div>
@@ -50,7 +47,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 to="/CreateRecipe"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-md transition"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-2 rounded-full font-semibold shadow-md transition"
               >
                 Create Recipe →
               </Link>
@@ -72,10 +69,10 @@ const Home = () => {
 
         <div
           className="
-  w-full md:w-[90%] 
+  lg:w-8/10 w-9/10  md:w-[90%] 
   h-[200px] sm:h-[300px] md:h-[400px] 
   mx-auto 
-  mt-10 md:mt-20 
+  mt-25 md:mt-20 
   flex items-center justify-center 
   bg-red-200 
   rounded-2xl 
@@ -83,7 +80,7 @@ const Home = () => {
 "
         >
           <img
-            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1170&auto=format&fit=crop"
+            src="/mainimage.avif"
             alt="Food"
             className="h-full w-full object-cover"
           />
@@ -97,7 +94,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
             <div className="bg-white rounded-xl shadow-md p-6 text-center hover:scale-105 hover:shadow-xl transition duration-300">
               <div className="text-3xl mb-3">🍳</div>
               <h3 className="font-semibold text-lg">Create Recipes</h3>
@@ -132,88 +129,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="w-full mt-20 bg-[#f4eee6] ">
-        <div className="max-w-7xl mx-auto  px-6 md:px-16 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900">Cookify</h2>
-              <p className="mt-3 text-sm text-gray-600">
-                Your personal digital cookbook. Create, manage and share your
-                recipes with ease.
-              </p>
-            </div>
-
-            
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Quick Links
-              </h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="hover:text-orange-500 cursor-pointer">Home</li>
-                <li className="hover:text-orange-500 cursor-pointer">About</li>
-                <li className="hover:text-orange-500 cursor-pointer">
-                  Recipes
-                </li>
-                <li className="hover:text-orange-500 cursor-pointer">
-                  Create Recipe
-                </li>
-              </ul>
-            </div>
-
-        
-               {/* //social media footer  */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Connect
-              </h3>
-
-              <ul className="space-y-3 text-gray-600">
-                <li>
-                  <a
-                    href="https://github.com/ankitshere"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-orange-500 transition"
-                  >
-                    <Github size={18} />
-                    GitHub
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="https://www.linkedin.com/in/ankit-webdev/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-orange-500 transition"
-                  >
-                    <Linkedin size={18} />
-                    LinkedIn
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="https://instagram.com/codeby_ankitt"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-orange-500 transition"
-                  >
-                    <Instagram size={18} />
-                    Instagram
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom */}
-          <div className="border-t border-gray-300 mt-10 pt-6 text-center text-sm text-gray-500">
-            © 2026 Cookify. All rights reserved.
-          </div>
-        </div>
-      </div>
+   <Footer/>
     </div>
   );
 };

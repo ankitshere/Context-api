@@ -7,13 +7,13 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="w-full relative      md:px-10  py-2">
+    <div className="w-full relative     md:px-10  py-5 px-6">
 
      
       <img 
         src="/icon.png" 
         alt="logo" 
-        className="w-24 h-14 md:w-32 md:h-16 cursor-pointer object-contain absolute left-4 md:-left-10 -top-2"
+        className="w-24 h-14 md:w-32 md:h-16  lg:ml-22 md:ml-10  cursor-pointer object-contain  absolute  md:left-0  top-0"
       />
 
       <div className="md:hidden flex  relative  sm: -px-30   justify-end ">
